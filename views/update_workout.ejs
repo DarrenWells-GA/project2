@@ -1,0 +1,51 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+    <!-- Main Website -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/"><i class="fas fa-angle-left"></i>All Workouts Planned</a>
+                </div>
+            </div>
+            <div class="form-title text-center">
+                <h2 class="text-dark">Update Workout</h2>
+                <span class="text-light">Update an existing workout below</span>
+            </div>
+
+            <!-- new workout form -->
+                         <!-- form handling -->
+                         <form method="POST" id="update_workout">
+                            <div class="new_workout">
+                                <div class="form-group">
+                                    <label for="Type of workout" class="text-light">Type of Workout</label>
+                                    <input type="hidden" name="id" value="">
+                                    <input type="text" name="Type of workout" value="" placeholder="Legs">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Muscle/Muscle Group" class="text-light">Muscle/Muscle Group</label>
+                                    <input type="text" name="Muscle/Muscle Group" value="" placeholder="Calfs">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Goal" class="text-light">Current Goal</label>
+                                    <input type="text" name="Goal" value="" placeholder="15 reps at 45 pounds">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Previous Goal" class="text-light">Previous Goal</label>
+                                    <input type="text" name="Previous Goal" value="" placeholder="10 reps at 45 pounds">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn text-dark update">Save Workout</button>
+                                </div>
+                            </div>
+                        </form>
+
+        </div>
+    </main>
+<!-- /Main Website -->
+
+<!-- include footer -->
+<%- include('include/footer') %>
+<!-- /include footer -->
