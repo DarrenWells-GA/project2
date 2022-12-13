@@ -6,14 +6,17 @@ exports.create = (req, res) => {
     if(!req.body){
         res.status(400).send({ message : "Content can not be empty!"});
     }
-
+var newWorkout = {
+    typeOfWorkout: req.body.typeOfWorkout,
+    muscleGroup: req.body.muscleGroup,
+    goal: req.body.goal,
+    previousGoal: req.body.previousGoal,
+}
+console.log(req.body)
+console.log(newWorkout)
     // new workout
-    const workout = new Workouts({
-        typeOfWorkout: req.body.typeOfWorkout,
-        muscleGroup: req.body.muscleGroup,
-        goal: req.body.goal,
-        previousGoal: req.body.previousGoal,
-    })
+    const workout = new Workouts (newWorkout)
+    console.log(workout)
 
     // save the workout in the database
     workout

@@ -16,7 +16,7 @@ route.get('/', services.homeRoutes);
  * @method GET /
  */
 
-route.post('/add-workout', services.add_workout);
+route.get('/add-workout', services.add_workout);
 
 /**
  * @description updating workouts
