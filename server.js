@@ -1,11 +1,18 @@
+
 const express = require('express');
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const bodyparser = require('body-parser');
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+require('dotenv').config()
+const mongoose = require('mongoose');
+const DATABASE_URL = process.env.DATABASE_URL
+const CONFIG = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+};
 
-const connectDB = require('./server/database/connection');
+mongoose.connect(DATABASE_URL, CONFIG)
 
 const app = express();
 
@@ -14,9 +21,6 @@ const PORT = process.env.PORT || 3000
 
 // log requests
 app.use(morgan('tiny'));
-
-// mongoDB connection
-connectDB();
 
 // my parse request to body-parser
 app.use(bodyparser.urlencoded({ extended: true}))
