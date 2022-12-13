@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 const bodyparser = require('body-parser');
 const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 
 const connectDB = require('./server/database/connection');
 
