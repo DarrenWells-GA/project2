@@ -8,9 +8,6 @@ exports.homeRoutes = (req, res) => {
         .then(function(response){
             res.render('index', {workouts : response.data});
         })
-        .catch(err =>{
-            res.send(err);
-        })
 }
 
 exports.add_workout = (req, res) => {
@@ -18,5 +15,12 @@ exports.add_workout = (req, res) => {
 },
 
 exports.update_workout = (req, res) => {
-    res.render('update_workout');
+    axios.get('http://localhost:3000/api/workouts', {params : {id : req.query.id}})
+    .then(function(workoutdata){
+        res.render("update_workout", { workout : workoutdata.data})
+    })
+   .catch(err =>{
+    res.send(err);
+   })
 }
+

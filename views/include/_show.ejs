@@ -7,10 +7,10 @@
     <td><%= workouts[i].goal%></td>
     <td><%= workouts[i].previousGoal%></td>
     <td>
-        <a href="/update-workout" class="btn border-shadow update">
+        <a href="/update-workout?id=<%= workouts[i]._id%>" class="btn border-shadow update">
         <span class="text-gradient"><i class="fa-solid fa-shield"></i></span>
     </a>
-    <a href="#" class="btn border-shadow delete">
+    <a href="#" class="btn border-shadow delete" data-id=<%= workouts[i]._id%> >
         <span class="text-gradient"><i class="fa-solid fa-x"></i></span>
     </a>
 </td>

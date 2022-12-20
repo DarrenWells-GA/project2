@@ -34,34 +34,41 @@ console.log(newWorkout)
 
 // retrieve and return all workouts/ retrieve and return a single workout
 exports.find = (req, res) => {
-    Workouts.find()
-    .then(workout => {
-        res.send(workout)
-    })
-    .catch(err => {
-        res.status(500).send({ message : err.message || "Error occurred while retrieving user information"})
-    })
-}
 
+    if(req.query.id){
+        const id = req.query.id;
+
+        Workouts.findById(id)
+        .then(data =>{
+            if(!data){
+                res.status(404)
+            }else{
+                res.send(data)
+            }
+        })
+    }else{
+        Workouts.find()
+        .then(workout => {
+            res.send(workout)
+        })
+    }
+}
 // update a new workout by workout id
 exports.update = (req, res) => {
     if(!req.body){
         return res
         .status(400)
-        .send({message : "Data to update cannot be empty"})
+        .send ({ message : "Data to update cannot be empty"})
     }
 
     const id = req.params.id;
     Workouts.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
     .then(data => {
-        if(!data) {
-            res.status(404).send({ message : `Cannot Update user with ${id}. Maybe workout not found!`})
+        if(!data){
+            res.status(404).send({ message : `cannot update workout with ${id}. Maybe the workout was not found`})
         }else{
             res.send(data)
         }
-    })
-    .catch(err => {
-        res.status(500).send({ message : "Error update workout information"})
     })
 }
 
