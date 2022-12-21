@@ -20,10 +20,10 @@ route.get('/add-workout', services.add_workout);
 
 /**
  * @description updating workouts
- * @method GET /
+ * @method PUT /
  */
 
-route.get('/update-workout', services.update_workout);
+route.put('/update-workout', services.update_workout);
 
 // API
 route.post('/api/workouts', controller.create);

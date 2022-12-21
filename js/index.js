@@ -16,7 +16,7 @@ $("#update_workout").submit(function(event){
     console.log(data);
 
     var request = {
-        "url" : `http://localhost:3000/api/workouts/${data.id}`,
+        "url" : `repulsive-trail-production.up.railway.app/api/workouts/${data.id}`,
         "method" : "PUT",
         "data" : data
     }
@@ -32,7 +32,7 @@ if(window.location.pathname == "/"){
         var id = $(this).attr("data-id")
 
         var request = {
-            "url" : `http://localhost:3000/api/workouts/${id}`,
+            "url" : `repulsive-trail-production.up.railway.app/api/workouts/${id}`,
             "method" : "DELETE"
         }
 
