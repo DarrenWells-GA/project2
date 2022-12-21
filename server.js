@@ -16,7 +16,7 @@ mongoose.connect(DATABASE_URL, CONFIG)
 
 const app = express();
 
-dotenv.config({ path : 'config.env'})
+// dotenv.config({ path : 'config.env'})
 const PORT = process.env.PORT || 3000
 
 // log requests
@@ -36,4 +36,4 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 // load routers
 app.use('/', require('./server/routes/router'))
 
-app.listen(PORT, ()=> {console.log(`The server is running on http://localhost:${3000}`)})
+app.listen(PORT, ()=> {console.log(`The server is running on http://localhost:${PORT}`)})
